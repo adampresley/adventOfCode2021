@@ -1,0 +1,15 @@
+gif diff --cached --name-status | while read st file; do
+	#
+	# Skip deleted files
+	# 
+	if [ "$st" == 'D' ]; then continue; fi
+
+	#
+	# Rule 1: No .env files
+	#
+	if [[ "$file" == ".env" ]]; then
+		echo "You are not allowed to commit .env files. This poses a security risk."
+		exit 1
+	fi
+done
+
