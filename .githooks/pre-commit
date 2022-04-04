@@ -1,4 +1,4 @@
-gif diff --cached --name-status | while read st file; do
+git diff --cached --name-status | while read st file; do
 	#
 	# Skip deleted files
 	# 
